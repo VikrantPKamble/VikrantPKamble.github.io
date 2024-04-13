@@ -2,7 +2,7 @@ subject: Experiences
 listing-order: 2
 icon: "/assets/img/briefcase.svg"
 contents:
-    - title: Indian Council of Agricultural Research
+  - title: Indian Council of Agricultural Research
     role: Young Professional II (IT)
     description:
       - Worked on the web application of the project "MIS-PIMI" [Management Information System for Plant Implementation and Monitoring in ICAR] using ASP.NET
