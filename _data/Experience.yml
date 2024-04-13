@@ -2,21 +2,34 @@ subject: Experiences
 listing-order: 2
 icon: "/assets/img/briefcase.svg"
 contents:
-  - title: Nanosoft
-    role: Project Manager
+    - title: Indian Council of Agricultural Research
+    role: Young Professional II (IT)
     description:
-      - Led development of a new chatbot software utilizing large language model
-      - Co-designer of '*Kopilot*' and '*Gemmini*'
-    date: Jan. 2024 - Ongoing
-  - title: Amazone
-    role: Senior Software Engineer
+      - Worked on the web application of the project "MIS-PIMI" [Management Information System for Plant Implementation and Monitoring in ICAR] using ASP.NET
+      - URL: https://pimi.icar.gov.in
+    date: Jun. 2023 - Ongoing
+  - title: ICAR-Indian Agricultural Statistics Research Institute
+    role: IT Professional I
     description: 
-      - Built a Java microservice, database schema to manage customer accounts
-      - Enhanced internal pipelines to query real-time data from client devices
-    date: Apr. 2016 - Dec. 2018
-  - title: Pacebook
-    role: Software Engineer Intern
+      - Maintenance and Testing of the Project "Kisan Sarathi"
+      - Created an Agro Morphological database website on the local server.
+    date: Dec. 2021 - Jun. 2023
+  - title: Maneela
+    role: WordPress Developer
     description: 
-      - Designed the dynamic website using React for data visualization
-      - Integrated '*Yolo*' to boost the accuracy of the object detection
-    date: Jul. 2013 - Sep. 2013
+      - Created a Job Portal website 
+      - URL: https://jobsarkari-pvt.com
+    date: Nov. 2020 - May. 2021
+  - title: Central Railway
+    role: DEO
+    description: 
+      - Worked on Human Resource Management System (HRMS)
+      - URL: https://hrms.indianrail.gov.in/HRMS
+      - Also worked in RPF Department in Central Railway, HQ
+    date: Aug. 2019 - Aug. 2020
+  - title: KBC All Media
+    role: Web Developer
+    description: 
+      - website design using the Bootstrap framework
+      - Website Development | Digital Marketing | Advertising 
+    date: Jul. 2017 - Jun. 2019
