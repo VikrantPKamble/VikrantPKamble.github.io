@@ -8,13 +8,13 @@ contents:
   #     - Development of model calibration algorithm for cross-domain few-shot learning
   #   date: Mar. 2019 - Aug. 2023
   - title: Dr. Babasaheb Ambedkar Marathwada University
-    title: MSc in Computer Science
+    degree: "**MSc in Computer Science**"
     # description:
       # - Development of deep learning algorithms for automatically tracking the facial expressions
       # - Optimizing parameter efficient fine tuning for fairness in medical image analysis
     grade: "**CGPA**: `6.4`"
     date: Jul. 2014 - Jun. 2017
   - title: Dr. Babasaheb Ambedkar Marathwada University
-    title: BSc in Physics, Electronics and Computer Science
+    degree: "<strong>BSc in Physics, Electronics and Computer Science</strong>"
     grade: "**CGPA**: `8.7`"
     date: Jun. 2011 - Jun. 2014
