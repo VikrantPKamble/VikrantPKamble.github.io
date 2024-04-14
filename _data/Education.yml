@@ -20,10 +20,10 @@ contents:
                   will appear these three
                   lines of poetry
       
-      fold_newlines: >
-                  this is really a
-                  single line of text
-                  despite appearances
+      # fold_newlines: >
+      #             this is really a
+      #             single line of text
+      #             despite appearances
                   
   - title: BSc in Physics, Electronics and Computer Science
     grade: "**CGPA**: `8.7`"
