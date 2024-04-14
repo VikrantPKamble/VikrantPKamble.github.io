@@ -15,6 +15,16 @@ contents:
     grade: "**CGPA**: `6.4`"
     date: Jul. 2014 - Jun. 2017
   - title: Dr. Babasaheb Ambedkar Marathwada University, Aurangabad
+      include_newlines: |
+                  exactly as you see
+                  will appear these three
+                  lines of poetry
+      
+      fold_newlines: >
+                  this is really a
+                  single line of text
+                  despite appearances
+                  
   - title: BSc in Physics, Electronics and Computer Science
     grade: "**CGPA**: `8.7`"
     date: Jun. 2011 - Jun. 2014
