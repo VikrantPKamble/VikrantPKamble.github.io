@@ -8,11 +8,11 @@ contents:
   #     - Designed Generative algorithm to generate novel human-like content
   #     - "Technology Used: Rust, Typescript, Python, Ruby"
   #   image: "![](https://i.ibb.co/hX2wYLB/231321.webp)"
-  - title: "Job Portal ([https://jobsarkari-pvt.com/](https://jobsarkari-pvt.com/))"
+  - title: "Job Portal Website ([https://jobsarkari-pvt.com/](https://jobsarkari-pvt.com/))"
     description: 
-      - Developed a job portal website called jobsarkari-pvt using the WordPress Content Management System.
+      - Developed a job portal website called jobsarkari-pvt using the WordPress Framework (Content Management System)
       - "Technology Used: WordPress"
   - title: "Agro Morphological Database"
     description: 
-      - Developed an Agro Morphological database website on a Local Server.
-      - "Technology Used: HTML, CSS, Bootstrap, PHP, MySQL"
+      - Developed an Agro Morphological Database website on a Local Server
+      - "Technology Used: HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, DataTables"
