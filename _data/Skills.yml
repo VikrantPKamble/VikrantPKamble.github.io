@@ -13,10 +13,10 @@ contents:
     description: "
       ![devicon](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg)
       ![devicon](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/wordpress/wordpress-plain.svg)
-      ![devicon](	https://github.com/dotnet/brand/blob/master/logo/dotnet-logo.svg)
+      ![devicon](https://upload.wikimedia.org/wikipedia/commons/e/ee/.NET_Core_Logo.svg)
     "
   - title: Database
     description: "
       ![devicon](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg)
-      ![devicon](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original-wordmark.svg)
+      ![devicon](https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/microsoftsqlserver/microsoftsqlserver-original.svg)
     "
