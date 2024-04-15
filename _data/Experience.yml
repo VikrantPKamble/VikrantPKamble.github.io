@@ -6,26 +6,26 @@ contents:
     role: Young Professional II (IT)
     description:
       - Working on the web application of the project "MIS-PIMI" [Management Information System for Plant Implementation and Monitoring in ICAR] using ASP.NET
-      # - "URL: https://pimi.icar.gov.in {:target='_blank'}"
-      - "URL: [https://jobsarkari-pvt.com/](https://jobsarkari-pvt.com/){:target='_blank'}"
+      - "URL: [https://pimi.icar.gov.in](https://pimi.icar.gov.in){:target='_blank'}"
     date: Jun. 2023 - Ongoing
   - title: ICAR-Indian Agricultural Statistics Research Institute
     role: IT Professional I
     description: 
       - Maintenance and Testing of the Project "Kisan Sarathi"
+      - "URL: [https://kisansarathi.in](https://kisansarathi.in){:target='_blank'}"
       - Created an Agro Morphological database website on the local server.
     date: Dec. 2021 - Jun. 2023
   - title: Maneela
     role: WordPress Developer
     description: 
       - Created a Job Portal website using WordPress
-      - URL:- https://jobsarkari-pvt.com
+      - "URL: [https://jobsarkari-pvt.com](https://jobsarkari-pvt.com){:target='_blank'}"
     date: Nov. 2020 - May. 2021
   - title: Central Railway
     role: DEO
     description: 
       - Worked on Human Resource Management System (HRMS)
-      - URL:- https://hrms.indianrail.gov.in/HRMS
+      - "URL: [https://hrms.indianrail.gov.in/HRMS](https://hrms.indianrail.gov.in/HRMS){:target='_blank'}"
       - Also worked in RPF Department in Central Railway, HQ
     date: Aug. 2019 - Aug. 2020
   - title: KBC All Media
