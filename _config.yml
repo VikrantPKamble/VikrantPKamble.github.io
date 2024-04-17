@@ -9,11 +9,11 @@ phone_number: 808-749-2636
 address: New Delhi, India
 email: vikrantpkamble@gmail.com
 linkedin_username: VikrantPKamble
-github_username: VikrantPKamble
+# github_username: VikrantPKamble
 instagram_username: VikrantPKamble
 twitter_username: VikrantPKamble
 facebook_username: VikrantPKamble
-youtube_username: VikrantPKamble
+# youtube_username: VikrantPKamble
 blog_url: vikrantpkamble.github.io
 
 exclude:
