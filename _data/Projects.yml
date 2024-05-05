@@ -12,7 +12,7 @@ contents:
     description: 
       - Developed a job portal website called jobsarkari-pvt using the WordPress Framework (Content Management System)
       - "Technology Used: WordPress"
-      image: "![](/assets/img/project-sarkarijob.webp)"
+      image: "![](https://raw.githubusercontent.com/VikrantPKamble/VikrantPKamble.github.io/main/assets/img/project-sarkarijob.webp)"
   - title: "Agro Morphological Database"
     description: 
       - Developed an Agro Morphological Database website on a Local Server
