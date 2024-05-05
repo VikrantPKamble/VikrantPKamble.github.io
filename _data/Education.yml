@@ -8,15 +8,11 @@ contents:
   #     - Development of model calibration algorithm for cross-domain few-shot learning
   #   date: Mar. 2019 - Aug. 2023
   # - title: "![devicon](/assets/img/aspnet.svg) Dr. Babasaheb Ambedkar Marathwada University"
-  - title: MSc in Computer Science
+  - title: MSc in Computer Science, Dr. Babasaheb Ambedkar Marathwada University
     # description: "**Dr. Babasaheb Ambedkar Marathwada University**" 
-    description:
-      - Dr. Babasaheb Ambedkar Marathwada University
     # grade: "**CGPA**: `6.4`"
     date: Jul. 2014 - Jun. 2017
-  - title: BSc in Physics, Electronics and Computer Science
-    description:
-      - Dr. Babasaheb Ambedkar Marathwada University
+  - title: BSc in Physics, Electronics and Computer Science, Dr. Babasaheb Ambedkar Marathwada University
     # degree: "<strong>BSc in Physics, Electronics and Computer Science</strong>"
     # grade: "**CGPA**: `8.7`"
     date: Jun. 2011 - Jun. 2014
