@@ -10,6 +10,7 @@ contents:
   # - title: "![devicon](/assets/img/aspnet.svg) Dr. Babasaheb Ambedkar Marathwada University"
     logo: "![devicon](/assets/img/deogiri-college.jpg)"
   - title: MSc in Computer Science, Deogiri College
+    icon: "/assets/img/deogiri-college.jpg"
     # description: "**Dr. Babasaheb Ambedkar Marathwada University**" 
     # grade: "**CGPA**: `6.4`"
     date: Jul. 2014 - Jun. 2017
