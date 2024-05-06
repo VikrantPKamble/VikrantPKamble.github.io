@@ -9,7 +9,9 @@ contents:
   #   date: Mar. 2019 - Aug. 2023
   # - title: "![devicon](/assets/img/aspnet.svg) Dr. Babasaheb Ambedkar Marathwada University"
   - title: MSc in Computer Science, Dr. Babasaheb Ambedkar Marathwada University
-           ![devicon](/assets/img/deogiri-college.jpg) Deogiri College
+    logo: "/assets/img/deogiri-college.jpg"
+    name: |
+      Deogiri College
     # description: "**Dr. Babasaheb Ambedkar Marathwada University**" 
     # grade: "**CGPA**: `6.4`"
     date: Jul. 2014 - Jun. 2017
