@@ -7,9 +7,9 @@ contents:
   #     - Design of a method to build a probabilistic generative model
   #     - Development of model calibration algorithm for cross-domain few-shot learning
   #   date: Mar. 2019 - Aug. 2023
-  # - title: "![devicon](/assets/img/aspnet.svg) Dr. Babasaheb Ambedkar Marathwada University"
-  - title: MSc in Computer Science, Dr. Babasaheb Ambedkar Marathwada University
-    logo: "/assets/img/deogiri-college.jpg"
+  - title: "![devicon](/assets/img/aspnet.svg) Dr. Babasaheb Ambedkar Marathwada University"
+  - title: MSc in Computer Science
+    logo: "![devicon](/assets/img/deogiri-college.jpg)"
     name: |
       Deogiri College
     # description: "**Dr. Babasaheb Ambedkar Marathwada University**" 
