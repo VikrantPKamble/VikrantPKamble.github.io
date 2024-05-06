@@ -8,15 +8,13 @@ contents:
   #     - Development of model calibration algorithm for cross-domain few-shot learning
   #   date: Mar. 2019 - Aug. 2023
   # - title: "![devicon](/assets/img/aspnet.svg) Dr. Babasaheb Ambedkar Marathwada University"
-  - title: MSc in Computer Science, Deogiri College
     logo: "![devicon](/assets/img/deogiri-college.jpg)"
-    # name: |
-    #   Deogiri College
+  - title: MSc in Computer Science, Deogiri College
     # description: "**Dr. Babasaheb Ambedkar Marathwada University**" 
     # grade: "**CGPA**: `6.4`"
     date: Jul. 2014 - Jun. 2017
-  - title: BSc in Physics, Electronics and Computer Science, S.B.E.S College of Science
     logo: "![devicon](/assets/img/sbes-college.jpg)"
+  - title: BSc in Physics, Electronics and Computer Science, S.B.E.S College
     # degree: "<strong>BSc in Physics, Electronics and Computer Science</strong>"
     # grade: "**CGPA**: `8.7`"
     date: Jun. 2011 - Jun. 2014
