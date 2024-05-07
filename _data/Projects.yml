@@ -17,10 +17,12 @@ contents:
     description: 
       - Developed an Agro Morphological Database website on a Local Server
       - "Technology Used: HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, DataTables"
-    image: "![](/assets/img/project-agromorph.webp)"
+    # image: "![](/assets/img/project-agromorph.webp)"
+    image_properties:
       height: 300px
       width: 400px
       border:
         style: solid
         width: 2px
         color: black
+    image_path: "/assets/img/project-agromorph.webp"
