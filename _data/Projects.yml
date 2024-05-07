@@ -18,8 +18,6 @@ contents:
       - Developed an Agro Morphological Database website on a Local Server
       - "Technology Used: HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, DataTables"
     image: "![](/assets/img/project-agromorph.webp)"
-    image:
-      path: "/assets/img/project-agromorph.webp"
       height: 300px
       width: 400px
       border:
