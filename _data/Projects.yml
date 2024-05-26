@@ -12,18 +12,18 @@ contents:
     description: 
       - working on the MIS-PIMI (Management Information System for Plan Implementation and Monitoring in ICAR) project, which aims to digitalize the workflow of the PIM (Plan Implementation and Monitoring) Section, ICAR.
       - "Technology Used: ASP.NET, C#"
-    image: "![](/assets/img/project-sarkarijob.webp)"
+    image: "![](/assets/img/project-pimi.png)"
     
   - title: "Agro Morphological Database"
     description: 
       - Developed an Agro Morphological Database website on a Local Server
       - "Technology Used: HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, DataTables"
-    image: "![](/assets/img/project-agromorph.webp)"
+    image: "![](/assets/img/project-agromorph.png)"
 
   - title: "Job Portal Website ([https://jobsarkari-pvt.com/](https://jobsarkari-pvt.com/){:target='_blank'})"
     description: 
       - Developed a job portal website called jobsarkari-pvt using the WordPress Framework (Content Management System)
       - "Technology Used: WordPress"
-    image: "![](/assets/img/project-sarkarijob.webp)"
+    image: "![](/assets/img/project-jobportal.png)"
 
 
