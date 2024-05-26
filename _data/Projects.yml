@@ -10,7 +10,7 @@ contents:
   #   image: "![](https://i.ibb.co/hX2wYLB/231321.webp)"
   - title: "MIS-PIMI ([https://pimi.icar.gov.in/](https://pimi.icar.gov.in/){:target='_blank'})"
     description: 
-      - working on the MIS-PIMI (Management Information System for Plan Implementation and Monitoring in ICAR) project, which aims to digitalize the workflow of the PIM (Plan Implementation and Monitoring) Section, ICAR.
+      - currently working on the MIS-PIMI (Management Information System for Plan Implementation and Monitoring in ICAR) project, which aims to digitalize the workflow of the PIM (Plan Implementation and Monitoring) Section, ICAR.
       - "Technology Used: ASP.NET, C#"
     image: "![](/assets/img/project-pimi.png)"
     
@@ -18,7 +18,7 @@ contents:
     description: 
       - Developed an Agro Morphological Database website on a Local Server
       - "Technology Used: HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, DataTables"
-    image: "![](/assets/img/project-agromorph.png)"
+    image: "![](/assets/img/project-argomorph.png)"
 
   - title: "Job Portal Website ([https://jobsarkari-pvt.com/](https://jobsarkari-pvt.com/){:target='_blank'})"
     description: 
