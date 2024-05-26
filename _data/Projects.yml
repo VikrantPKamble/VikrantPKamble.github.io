@@ -16,7 +16,7 @@ contents:
     
   - title: "Agro Morphological Database"
     description: 
-      - Developed an Agro Morphological Database website on a Local Server
+      - Developed an Agro Morphological Database website on the Local Server
       - "Technology Used: HTML, CSS, JavaScript, Bootstrap, PHP, MySQL, DataTables"
     image: "![](/assets/img/project-argomorph.png)"
 
@@ -25,5 +25,4 @@ contents:
       - Developed a job portal website called jobsarkari-pvt using the WordPress Framework (Content Management System)
       - "Technology Used: WordPress"
     image: "![](/assets/img/project-jobportal.png)"
-
-
+    
