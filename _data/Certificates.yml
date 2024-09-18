@@ -5,12 +5,12 @@ contents:
   - title: DOT NET Programming
     description: Deogiri College, Aurangabad, Maharashtra
     # date: Oct. 2015
-  - title: Certificate Course in Structured Query Language using MySQL
-    description: National Institute of Electronics and Information Technology
-    # date: Dec. 2023
   - title: Programming and Software Development
     description: Career Essentials in Software Development by Microsoft and Linkedin
     # date: Feb. 2023
+  - title: Certificate Course in Structured Query Language using MySQL
+    description: National Institute of Electronics and Information Technology
+    # date: Dec. 2023
   - title: Certified Full Stack Web Developer
     description: National Institute of Electronics and Information Technology
     # date: Feb. 2024
