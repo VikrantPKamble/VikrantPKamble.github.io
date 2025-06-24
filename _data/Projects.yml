@@ -10,7 +10,7 @@ contents:
   #   image: "![](https://i.ibb.co/hX2wYLB/231321.webp)"
   - title: "MIS-PIMI ([https://pimi.icar.gov.in/](https://pimi.icar.gov.in/){:target='_blank'})"
     description: 
-      - currently working on the MIS-PIMI (Management Information System for Plan Implementation and Monitoring in ICAR) project, which aims to digitalize the workflow of the PIM (Plan Implementation and Monitoring) Section, ICAR.
+      - Developed a web application for the MIS-PIMI (Management Information System for Plan Implementation and Monitoring in ICAR) project, which aims to digitalize the workflow of the PIM (Plan Implementation and Monitoring) Section, ICAR.
       - "Technology Used: ASP.NET, C#"
     image: "![](/assets/img/project-pimi.png)"
     
