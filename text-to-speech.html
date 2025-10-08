@@ -60,53 +60,59 @@
   </div>
 
   <script>
-    const API_URL = "https://api.sarvam.ai/text-to-speech";
-    const API_KEY = "sk_5kk571fd_AM3ZFCIyLpBZYvo6x2F8HRU7"; // ⚠️ Temporary key for testing only
+  const API_URL = "https://api.sarvam.ai/text-to-speech";
+  const API_KEY = "sk_5kk571fd_AM3ZFCIyLpBZYvo6x2F8HRU7"; // ⚠️ use only for testing, never in public deploys
 
-    document.getElementById("speakBtn").onclick = async () => {
-      const text = document.getElementById("textInput").value.trim();
-      const status = document.getElementById("status");
-      const player = document.getElementById("player");
-      if (!text) {
-        alert("Please enter some text.");
-        return;
+  document.getElementById("speakBtn").onclick = async () => {
+    const text = document.getElementById("textInput").value.trim();
+    const status = document.getElementById("status");
+    const player = document.getElementById("player");
+
+    if (!text) {
+      alert("Please enter some text.");
+      return;
+    }
+
+    status.textContent = "🔄 Generating speech...";
+    player.src = "";
+
+    try {
+      const response = await fetch(API_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "audio/mpeg", // ask for MP3 audio
+          "api-subscription-key": API_KEY,
+        },
+        body: JSON.stringify({
+          model: "bulbul:v2",
+          inputs: [
+            {
+              text: text, // ✅ correct field name inside inputs[]
+              voice: "anushka",
+              target_language_code: "hi-IN",
+            }
+          ]
+        }),
+      });
+
+      if (!response.ok) {
+        const error = await response.text();
+        throw new Error(error);
       }
 
-      status.textContent = "Generating speech...";
-      player.src = "";
+      const blob = await response.blob();
+      const url = URL.createObjectURL(blob);
 
-      try {
-        const response = await fetch(API_URL, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "api-subscription-key": API_KEY,
-          },
-          body: JSON.stringify({
-            model: "bulbul:v2",
-            input: text,
-            voice: "anushka", // you can try different voices if available
-            target_language_code: "hi-IN"
-          }),
-        });
+      player.src = url;
+      await player.play();
+      status.textContent = "✅ Speech generated successfully!";
+    } catch (err) {
+      console.error(err);
+      status.textContent = "❌ Error: " + err.message;
+    }
+  };
+</script>
 
-        if (!response.ok) {
-          const error = await response.text();
-          throw new Error(error);
-        }
-
-        // The API returns binary audio (mp3)
-        const blob = await response.blob();
-        const url = URL.createObjectURL(blob);
-
-        player.src = url;
-        player.play();
-        status.textContent = "✅ Speech generated successfully!";
-      } catch (err) {
-        console.error(err);
-        status.textContent = "❌ Error: " + err.message;
-      }
-    };
-  </script>
 </body>
 </html>
