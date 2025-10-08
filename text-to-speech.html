@@ -61,19 +61,18 @@
 
   <script>
   const API_URL = "https://api.sarvam.ai/text-to-speech";
-  const API_KEY = "sk_5kk571fd_AM3ZFCIyLpBZYvo6x2F8HRU7"; // ⚠️ use only for testing, never in public deploys
+  const API_KEY = "sk_5kk571fd_AM3ZFCIyLpBZYvo6x2F8HRU7"; // ⚠️ Temporary key for testing only
 
   document.getElementById("speakBtn").onclick = async () => {
     const text = document.getElementById("textInput").value.trim();
     const status = document.getElementById("status");
     const player = document.getElementById("player");
-
     if (!text) {
       alert("Please enter some text.");
       return;
     }
 
-    status.textContent = "🔄 Generating speech...";
+    status.textContent = "Generating speech...";
     player.src = "";
 
     try {
@@ -81,18 +80,13 @@
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "Accept": "audio/mpeg", // ask for MP3 audio
           "api-subscription-key": API_KEY,
         },
         body: JSON.stringify({
           model: "bulbul:v2",
-          inputs: [
-            {
-              text: text, // ✅ correct field name inside inputs[]
-              voice: "anushka",
-              target_language_code: "hi-IN",
-            }
-          ]
+          text: text, // ✅ Correct key name
+          voice: "anushka", // available voice
+          target_language_code: "hi-IN",
         }),
       });
 
@@ -105,7 +99,7 @@
       const url = URL.createObjectURL(blob);
 
       player.src = url;
-      await player.play();
+      player.play();
       status.textContent = "✅ Speech generated successfully!";
     } catch (err) {
       console.error(err);
