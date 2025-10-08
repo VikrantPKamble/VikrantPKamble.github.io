@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarvam Speech-to-Text Demo</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f4f6f8;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem;
+    }
+    h1 { color: #222; }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 2rem;
+      max-width: 500px;
+      width: 100%;
+    }
+    input, button {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    #status {
+      margin-top: 1rem;
+      color: #555;
+    }
+    #output {
+      margin-top: 1rem;
+      background: #f0f0f0;
+      padding: 1rem;
+      border-radius: 8px;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎙️ Speech-to-Text</h1>
+    <p>Select an audio file to transcribe:</p>
+    <input type="file" id="audioInput" accept="audio/*">
+    <button id="uploadBtn">Transcribe</button>
+    <div id="status"></div>
+    <div id="output"></div>
+  </div>
+
+  <script>
+    const API_URL = "https://api.sarvam.ai/speech-to-text";
+    const API_KEY = "sk_pazn6tyf_d2KIBOjtMUba5FOoXqplr03Q"; // ⚠️ For learning only, not production!
+
+    document.getElementById("uploadBtn").onclick = async () => {
+      const fileInput = document.getElementById("audioInput");
+      const status = document.getElementById("status");
+      const output = document.getElementById("output");
+
+      if (!fileInput.files.length) {
+        alert("Please choose an audio file first.");
+        return;
+      }
+
+      const file = fileInput.files[0];
+      status.textContent = "Uploading and transcribing...";
+      output.textContent = "";
+
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("model", "saarika:v2.5");
+      formData.append("language_code", "en-IN");
+
+      try {
+        const res = await fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "api-subscription-key": API_KEY
+          },
+          body: formData
+        });
+
+        const data = await res.json();
+
+        if (!res.ok) {
+          throw new Error(data.error || "Something went wrong");
+        }
+
+        status.textContent = "✅ Done!";
+        output.textContent = data.transcript || JSON.stringify(data, null, 2);
+      } catch (err) {
+        status.textContent = "❌ Error: " + err.message;
+      }
+    };
+  </script>
+</body>
+</html>
