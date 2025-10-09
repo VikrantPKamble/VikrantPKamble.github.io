@@ -43,10 +43,13 @@
       color: #fff;
       background: #007bff;
       margin-top: .75rem;
+      transition: background 0.2s;
     }
+    button:hover:not([disabled]) { background: #0064d6; }
     button[disabled] { opacity: .6; cursor: not-allowed; }
     #downloadBtn { display:none; background:#00a86b; }
-    #status { margin-top: .8rem; color:#333; }
+    #downloadBtn:hover { background:#00925f; }
+    #status { margin-top: .8rem; color:#333; white-space: pre-wrap; }
     audio { margin-top: .8rem; width:100%; }
     label { margin-top:.6rem; display:block; color:#333; font-weight:500; }
   </style>
@@ -54,7 +57,7 @@
 <body>
   <div class="card">
     <h1>🗣️ Sarvam Text-to-Speech</h1>
-    <p>Convert text to speech directly in your browser.</p>
+    <p>Convert text into natural speech directly in your browser.</p>
 
     <textarea id="textInput" placeholder="Type your text here...">Welcome to Sarvam AI!</textarea>
 
@@ -62,11 +65,11 @@
     <select id="speaker">
       <option value="anushka" selected>Anushka</option>
       <option value="abhilash">Abhilash</option>
-      <option value="manisha">Manisha</option>
       <option value="vidya">Vidya</option>
-      <option value="arya">Arya</option>
-      <option value="karun">Karun</option>
-      <option value="hitesh">Hitesh</option>
+      <option value="priya">Priya</option>
+      <option value="rahul">Rahul</option>
+      <option value="rohan">Rohan</option>
+      <option value="neha">Neha</option>
       <option value="kriti">Kriti</option>
       <option value="simran">Simran</option>
     </select>
@@ -80,7 +83,7 @@
 
   <script>
     const API_URL = "https://api.sarvam.ai/text-to-speech";
-    const API_KEY = "sk_5kk571fd_AM3ZFCIyLpBZYvo6x2F8HRU7"; // ⚠️ For testing only
+    const API_KEY = "sk_5kk571fd_AM3ZFCIyLpBZYvo6x2F8HRU7"; // ⚠️ For demo use only!
 
     const textInput = document.getElementById("textInput");
     const speakerSelect = document.getElementById("speaker");
@@ -103,10 +106,7 @@
       try {
         const res = await fetch(API_URL, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "api-subscription-key": API_KEY
-          },
+          headers: { "api-subscription-key": API_KEY },
           body: JSON.stringify({
             model: "bulbul:v2",
             text,
@@ -120,11 +120,17 @@
           })
         });
 
+        const contentType = res.headers.get("content-type") || "";
         if (!res.ok) {
           const err = await res.text();
           throw new Error(err);
         }
+        if (contentType.includes("application/json")) {
+          const errJson = await res.json();
+          throw new Error(JSON.stringify(errJson, null, 2));
+        }
 
+        // ✅ If here, we got audio data
         const blob = await res.blob();
         const url = URL.createObjectURL(blob);
         if (currentAudioUrl) URL.revokeObjectURL(currentAudioUrl);
@@ -140,7 +146,7 @@
         };
         statusEl.textContent = "✅ Done!";
       } catch (e) {
-        statusEl.textContent = "❌ Error: " + e.message;
+        statusEl.textContent = "❌ Error:\n" + e.message;
         console.error(e);
       } finally {
         convertBtn.disabled = false;
