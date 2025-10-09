@@ -1,162 +1,267 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Sarvam Text-to-Speech Demo</title>
   <style>
     body {
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
       background: #f4f6f8;
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      justify-content: center;
       padding: 2rem;
     }
-    h1 { color: #222; }
     .card {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 2rem;
-      max-width: 500px;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      padding: 1.5rem;
+      max-width: 560px;
       width: 100%;
     }
+    h1 { margin: 0 0 .25rem 0; font-size: 1.25rem; color: #222; }
+    p { margin: 0 0 0.75rem 0; color: #444; }
     textarea, select, button {
-      margin-top: 1rem;
-      font-size: 1rem;
       width: 100%;
+      font-size: 1rem;
+      margin-top: 0.75rem;
+      box-sizing: border-box;
     }
     textarea {
-      resize: vertical;
-      height: 100px;
+      min-height: 120px;
       padding: 0.75rem;
       border-radius: 8px;
-      border: 1px solid #ccc;
+      border: 1px solid #d8dce0;
+      resize: vertical;
+      background: #fafbfc;
     }
-    #status {
-      margin-top: 1rem;
-      color: #555;
+    .row {
+      display: flex;
+      gap: 0.75rem;
+      margin-top: 0.75rem;
     }
-    audio {
-      margin-top: 1rem;
-      width: 100%;
+    .row > * { flex: 1; }
+    button {
+      padding: 0.7rem 0.9rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      background: #0b74ff;
+      color: white;
     }
+    button[disabled] { opacity: 0.6; cursor: default; }
     #downloadBtn {
       display: none;
-      margin-top: 1rem;
-      background: #007bff;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      padding: 0.75rem;
-      cursor: pointer;
-      font-size: 1rem;
+      background: #00a86b;
     }
-    #downloadBtn:hover {
-      background: #0056b3;
-    }
+    #status { margin-top: 0.8rem; color: #333; }
+    audio { margin-top: 0.6rem; width: 100%; }
+    label { display:block; margin-top:0.6rem; color:#555; font-size:0.95rem; }
   </style>
 </head>
 <body>
   <div class="card">
-    <h1>🗣️ Text-to-Speech</h1>
-    <p>Enter text to convert into speech:</p>
+    <h1>🗣️ Sarvam Text-to-Speech (Fixed)</h1>
+    <p>Type text, pick a voice, generate speech and download the MP3.</p>
 
-    <textarea id="textInput" placeholder="Type your text here..."></textarea>
+    <textarea id="textInput" placeholder="Type your text here...">Welcome to Sarvam AI!</textarea>
 
-    <label for="speaker">Choose a voice:</label>
+    <label for="speaker">Choose a voice</label>
     <select id="speaker">
-      <option value="anushka">Anushka (Female)</option>
-      <option value="arjun">Arjun (Male)</option>
+      <!-- full list of allowed speakers (exact API values) -->
+      <option value="anushka" selected>Anushka</option>
+      <option value="abhilash">Abhilash</option>
+      <option value="manisha">Manisha</option>
+      <option value="vidya">Vidya</option>
+      <option value="arya">Arya</option>
+      <option value="karun">Karun</option>
+      <option value="hitesh">Hitesh</option>
+      <option value="aditya">Aditya</option>
+      <option value="isha">Isha</option>
+      <option value="ritu">Ritu</option>
+      <option value="chirag">Chirag</option>
+      <option value="harsh">Harsh</option>
+      <option value="sakshi">Sakshi</option>
+      <option value="priya">Priya</option>
+      <option value="neha">Neha</option>
+      <option value="rahul">Rahul</option>
+      <option value="pooja">Pooja</option>
+      <option value="rohan">Rohan</option>
+      <option value="simran">Simran</option>
+      <option value="kavya">Kavya</option>
+      <option value="anjali">Anjali</option>
+      <option value="sneha">Sneha</option>
+      <option value="kiran">Kiran</option>
+      <option value="vikram">Vikram</option>
+      <option value="rajesh">Rajesh</option>
+      <option value="sunita">Sunita</option>
+      <option value="tara">Tara</option>
+      <option value="anirudh">Anirudh</option>
+      <option value="kriti">Kriti</option>
+      <option value="ishaan">Ishaan</option>
     </select>
 
-    <button id="convertBtn">Convert to Speech</button>
+    <div class="row">
+      <button id="convertBtn">Convert to Speech</button>
+      <button id="downloadBtn">⬇️ Download MP3</button>
+    </div>
 
     <div id="status"></div>
     <audio id="audioPlayer" controls></audio>
-    <button id="downloadBtn">⬇️ Download MP3</button>
   </div>
 
   <script>
+    // === CONFIG ===
     const API_URL = "https://api.sarvam.ai/text-to-speech";
-    const API_KEY = "sk_5kk571fd_AM3ZFCIyLpBZYvo6x2F8HRU7"; // ⚠️ Demo key only
+    const API_KEY = "sk_5kk571fd_AM3ZFCIyLpBZYvo6x2F8HRU7"; // demo key only — do NOT commit real keys to public sites
 
-    document.getElementById("convertBtn").onclick = async () => {
-      const text = document.getElementById("textInput").value.trim();
-      const speaker = document.getElementById("speaker").value;
-      const status = document.getElementById("status");
-      const audioPlayer = document.getElementById("audioPlayer");
-      const downloadBtn = document.getElementById("downloadBtn");
+    // === DOM ===
+    const textInput = document.getElementById('textInput');
+    const speakerSelect = document.getElementById('speaker');
+    const convertBtn = document.getElementById('convertBtn');
+    const downloadBtn = document.getElementById('downloadBtn');
+    const statusEl = document.getElementById('status');
+    const audioPlayer = document.getElementById('audioPlayer');
+
+    let currentAudioUrl = null; // to revoke object URLs and avoid leaks
+
+    convertBtn.addEventListener('click', async () => {
+      const text = textInput.value.trim();
+      const speaker = speakerSelect.value;
 
       if (!text) {
-        alert("Please enter some text first.");
+        alert('Please enter some text first.');
         return;
       }
 
-      status.textContent = "🎧 Generating speech...";
-      audioPlayer.src = "";
-      downloadBtn.style.display = "none";
+      // UI
+      setStatus('🎧 Generating speech...');
+      convertBtn.disabled = true;
+      downloadBtn.style.display = 'none';
+      audioPlayer.src = '';
 
       try {
         const res = await fetch(API_URL, {
-          method: "POST",
+          method: 'POST',
           headers: {
-            "Content-Type": "application/json",
-            "api-subscription-key": API_KEY
+            'Content-Type': 'application/json',
+            'api-subscription-key': API_KEY
           },
           body: JSON.stringify({
-            model: "bulbul:v2",
-            speaker: speaker,
-            text: text,
-            target_language_code: "en-IN"
+            model: 'bulbul:v2',
+            speaker,
+            text,
+            target_language_code: 'en-IN'
           })
         });
 
-        const data = await res.json();
-
         if (!res.ok) {
-          throw new Error(data.error?.message || "Something went wrong");
+          // try to get JSON error body, otherwise text
+          let errMsg;
+          try {
+            const errJson = await res.json();
+            errMsg = errJson.error?.message || JSON.stringify(errJson);
+          } catch (e) {
+            errMsg = await res.text();
+          }
+          throw new Error(errMsg || `${res.status} ${res.statusText}`);
         }
 
-        // Convert base64 audio to Blob
-        const audioBlob = b64toBlob(data.audio, "audio/mp3");
+        const ct = (res.headers.get('content-type') || '').toLowerCase();
+
+        let audioBlob;
+        if (ct.includes('application/json')) {
+          // API returned JSON — expect data.audio (base64 or data-url)
+          const data = await res.json();
+          if (!data.audio) throw new Error('No "audio" field in JSON response.');
+          let b64 = String(data.audio).trim();
+
+          // strip any data:...;base64, prefix
+          b64 = b64.replace(/^data:audio\/[^;]+;base64,/, '');
+
+          // normalize url-safe base64 to standard base64
+          b64 = b64.replace(/-/g, '+').replace(/_/g, '/');
+
+          // pad with '=' if needed
+          while (b64.length % 4 !== 0) b64 += '=';
+
+          // convert to Blob via a data URL fetch (avoids direct atob problems)
+          audioBlob = await base64ToBlob(b64, 'audio/mpeg');
+        } else if (ct.startsWith('audio/')) {
+          // API returned binary audio directly
+          const ab = await res.arrayBuffer();
+          audioBlob = new Blob([ab], { type: ct });
+        } else {
+          // unknown content-type: try text and treat as base64 or JSON
+          const textResp = await res.text();
+          try {
+            const maybeJson = JSON.parse(textResp);
+            if (maybeJson.audio) {
+              let b64 = String(maybeJson.audio).replace(/^data:audio\/[^;]+;base64,/, '');
+              b64 = b64.replace(/-/g, '+').replace(/_/g, '/');
+              while (b64.length % 4 !== 0) b64 += '=';
+              audioBlob = await base64ToBlob(b64, 'audio/mpeg');
+            } else {
+              throw new Error('Unrecognized response format from server.');
+            }
+          } catch (e) {
+            // fallback: maybe the body is raw base64
+            let b64 = String(textResp).replace(/^data:audio\/[^;]+;base64,/, '').trim();
+            b64 = b64.replace(/-/g, '+').replace(/_/g, '/');
+            while (b64.length % 4 !== 0) b64 += '=';
+            audioBlob = await base64ToBlob(b64, 'audio/mpeg');
+          }
+        }
+
+        // stop previous object URL
+        if (currentAudioUrl) {
+          URL.revokeObjectURL(currentAudioUrl);
+          currentAudioUrl = null;
+        }
+
         const audioUrl = URL.createObjectURL(audioBlob);
-
-        status.textContent = "✅ Done!";
+        currentAudioUrl = audioUrl;
         audioPlayer.src = audioUrl;
-        audioPlayer.play();
+        audioPlayer.play().catch(()=>{/* autoplay may be blocked; ignore */});
 
-        // Show download button
-        downloadBtn.style.display = "block";
+        // show download button
+        downloadBtn.style.display = 'inline-block';
         downloadBtn.onclick = () => {
-          const a = document.createElement("a");
+          const a = document.createElement('a');
           a.href = audioUrl;
-          a.download = "sarvam-tts.mp3";
+          a.download = 'sarvam-tts.mp3';
           document.body.appendChild(a);
           a.click();
           document.body.removeChild(a);
         };
 
-      } catch (err) {
-        status.textContent = "❌ Error: " + err.message;
-      }
-    };
+        setStatus('✅ Done!');
 
-    function b64toBlob(b64Data, contentType = "", sliceSize = 512) {
-      const byteCharacters = atob(b64Data);
-      const byteArrays = [];
-      for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-        const slice = byteCharacters.slice(offset, offset + sliceSize);
-        const byteNumbers = new Array(slice.length);
-        for (let i = 0; i < slice.length; i++) {
-          byteNumbers[i] = slice.charCodeAt(i);
-        }
-        const byteArray = new Uint8Array(byteNumbers);
-        byteArrays.push(byteArray);
+      } catch (err) {
+        console.error(err);
+        setStatus('❌ Error: ' + (err?.message || err));
+      } finally {
+        convertBtn.disabled = false;
       }
-      return new Blob(byteArrays, { type: contentType });
+    });
+
+    function setStatus(text) {
+      statusEl.textContent = text;
     }
+
+    // convert normalized base64 string to Blob by making a data: URL and fetching it
+    // This avoids direct atob usage and handles large payloads more robustly.
+    async function base64ToBlob(b64Data, contentType = 'audio/mpeg') {
+      const dataUrl = `data:${contentType};base64,${b64Data}`;
+      const resp = await fetch(dataUrl);
+      return await resp.blob();
+    }
+
+    // cleanup on unload
+    window.addEventListener('unload', () => {
+      if (currentAudioUrl) URL.revokeObjectURL(currentAudioUrl);
+    });
   </script>
 </body>
 </html>
