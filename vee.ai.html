@@ -3,45 +3,98 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vee AI | Chat with Vee AI</title>
+  <title>AI Chat | Vikrant</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💬</text></svg>">
   <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-  
+
   <style>
+    /* 1. Updated CSS for the theme toggle button */
     :root {
+      /* Light Mode Colors */
+      --bg-light: #f9f9f9;
+      --card-light: #ffffff;
+      --text-light: #222222;
+      --accent-light: #0066cc;
+      --border-light: rgba(0, 0, 0, 0.1);
+
+      /* Dark Mode Colors */
       --bg-dark: #212121;
-      --bg-light: #2E2E2E;
-      --accent: #4A90E2;
-      --text-primary: #FFFFFF;
-      --text-secondary: #B0B0B0;
-      --border-color: rgba(255, 255, 255, 0.1);
+      --card-dark: #2E2E2E;
+      --text-dark: #ffffff;
+      --accent-dark: #4A90E2;
+      --border-dark: rgba(255, 255, 255, 0.1);
+
+      /* Default to light mode */
+      --bg: var(--bg-light);
+      --card: var(--card-light);
+      --text: var(--text-light);
+      --accent: var(--accent-light);
+      --border-color: var(--border-light);
     }
+
+    .dark-mode {
+      /* Switch to dark mode variables */
+      --bg: var(--bg-dark);
+      --card: var(--card-dark);
+      --text: var(--text-dark);
+      --accent: var(--accent-dark);
+      --border-color: var(--border-dark);
+    }
+    
     * { box-sizing: border-box; }
+
     body {
       margin: 0;
       height: 100vh;
       display: flex;
       flex-direction: column;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-dark);
-      color: var(--text-primary);
+      background-color: var(--bg);
+      color: var(--text);
+      transition: background-color 0.3s, color 0.3s;
     }
+
     header {
+      position: relative;
       padding: 1rem 1.25rem;
       border-bottom: 1px solid var(--border-color);
       text-align: center;
-      background-color: var(--bg-light);
+      background-color: var(--card);
+      transition: background-color 0.3s, border-color 0.3s;
     }
+    
+    .theme-toggle-button {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+      transform: translateY(-50%);
+      background: transparent;
+      border: none;
+      color: var(--accent);
+      padding: 0.5rem;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-toggle-button:hover {
+        background-color: rgba(128, 128, 128, 0.1);
+    }
+
     header h1 {
       margin: 0;
       font-size: 1.125rem;
       font-weight: 600;
     }
+
     header p {
       margin: 0.25rem 0 0;
       font-size: 0.8rem;
-      color: var(--text-secondary);
+      color: var(--text-secondary, #6c757d);
     }
+    
     #chat {
       flex: 1;
       overflow-y: auto;
@@ -50,68 +103,79 @@
       flex-direction: column;
       gap: 1rem;
     }
+
     .msg {
       max-width: 85%;
       padding: 0.75rem 1rem;
       border-radius: 1.25rem;
       line-height: 1.5;
       word-wrap: break-word;
-      position: relative;
+      transition: background-color 0.3s, color 0.3s;
     }
+
     .user {
       align-self: flex-end;
       background-color: var(--accent);
-      color: var(--text-primary);
+      color: #ffffff;
       border-bottom-right-radius: 0.5rem;
     }
+
     .assistant {
       align-self: flex-start;
-      background-color: var(--bg-light);
+      background-color: var(--card);
       border-bottom-left-radius: 0.5rem;
     }
+    
     .msg-thinking {
-      color: var(--text-secondary);
       font-style: italic;
     }
+
     form {
       display: flex;
       padding: 0.75rem;
       border-top: 1px solid var(--border-color);
-      background-color: var(--bg-light);
+      background-color: var(--card);
       gap: 0.5rem;
       align-items: center;
+      transition: background-color 0.3s, border-color 0.3s;
     }
+
     input {
       flex: 1;
       padding: 0.75rem 1rem;
       border-radius: 1.5rem;
       border: 1px solid var(--border-color);
-      background-color: var(--bg-dark);
-      color: var(--text-primary);
+      background-color: var(--bg);
+      color: var(--text);
       outline: none;
       font-size: 1rem;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
     }
+
     input:focus {
       border-color: var(--accent);
     }
-    button {
+
+    button[type="submit"] {
       background: var(--accent);
       border: none;
-      color: var(--text-primary);
+      color: #ffffff;
       width: 2.5rem;
       height: 2.5rem;
       border-radius: 50%;
       cursor: pointer;
-      font-weight: bold;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: background-color 0.3s, transform 0.1s;
     }
-    button:active { transform: scale(0.95); }
+
+    button[type="submit"]:active { transform: scale(0.95); }
   </style>
 </head>
 <body>
   <header>
+    <button class="theme-toggle-button" aria-label="Toggle theme"></button>
     <h1>Chat with Vee AI</h1>
     <p>An intelligent assistant built to chat and learn.</p>
   </header>
@@ -126,6 +190,38 @@
   </form>
 
  <script>
+  /* 2. Updated JavaScript to handle icons */
+  const themeToggleButton = document.querySelector('.theme-toggle-button');
+
+  const sunIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>`;
+  const moonIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>`;
+
+  function updateThemeIcon(theme) {
+    if (theme === 'dark') {
+      themeToggleButton.innerHTML = sunIcon;
+    } else {
+      themeToggleButton.innerHTML = moonIcon;
+    }
+  }
+
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+  updateThemeIcon(currentTheme);
+
+  themeToggleButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    
+    let theme = 'light';
+    if (document.body.classList.contains('dark-mode')) {
+      theme = 'dark';
+    }
+    localStorage.setItem('theme', theme);
+    updateThemeIcon(theme);
+  });
+  
+  // Existing chat functionality
   const API_KEY = "sk_jnyh4ckx_YonyUmTYV81dLZdRbawEo5YE";
   const API_URL = "https://api.sarvam.ai/v1/chat/completions";
 
@@ -138,8 +234,10 @@
     div.className = "msg " + role;
     if (isThinking) {
       div.classList.add("msg-thinking");
+      div.textContent = text;
+    } else {
+      div.innerHTML = marked.parse(text);
     }
-    div.textContent = text;
     chat.appendChild(div);
     chat.scrollTop = chat.scrollHeight;
   }
@@ -185,14 +283,13 @@
       else if (data.result)
         reply = data.result;
 
-      placeholder.innerHTML = marked.parse(reply); 
+      placeholder.innerHTML = marked.parse(reply);
       placeholder.classList.remove("msg-thinking");
     } catch (err) {
       placeholder.textContent = "Network error: " + err.message;
       placeholder.classList.remove("msg-thinking");
     }
   });
-</script>
-
+ </script>
 </body>
 </html>
