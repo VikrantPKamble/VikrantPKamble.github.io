@@ -2,6 +2,12 @@ subject: Experiences
 listing-order: 2
 icon: "/assets/img/briefcase.svg"
 contents:
+ - title: ICAR-Indian Agricultural Statistics Research Institute
+    role: IT Professional III
+    description:
+      - Contributed to the development of the Academic Management System (AMS) used across agricultural universities.
+      # - "URL: [https://pimi.icar.gov.in](https://pimi.icar.gov.in){:target='_blank'}"
+    date: Dec. 2024 - May 2025
   - title: Indian Council of Agricultural Research
     role: Young Professional II (IT)
     description:
