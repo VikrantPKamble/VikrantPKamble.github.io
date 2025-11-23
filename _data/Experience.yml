@@ -6,13 +6,13 @@ contents:
     role: IT Professional III
     description:
       - Contributed to the development of the Academic Management System (AMS) used across agricultural universities.
-      - "URL: [https://pimi.icar.gov.in](https://pimi.icar.gov.in){:target='_blank'}"
+      # - "URL: [https://pimi.icar.gov.in](https://pimi.icar.gov.in){:target='_blank'}"
     date: Dec. 2024 - May 2025
   - title: Indian Council of Agricultural Research
     role: Young Professional II (IT)
     description:
       - Worked on the web application of the project "MIS-PIMI" [Management Information System for Plan Implementation and Monitoring in ICAR] using ASP.NET
-      - "URL: [https://pimi.icar.gov.in](https://pimi.icar.gov.in){:target='_blank'}"
+      # - "URL: [https://pimi.icar.gov.in](https://pimi.icar.gov.in){:target='_blank'}"
     date: Jun. 2023 - Jun 2024
   - title: ICAR-Indian Agricultural Statistics Research Institute
     role: IT Professional I
@@ -25,7 +25,7 @@ contents:
     role: WordPress Developer
     description: 
       - Created a Job Portal website using WordPress
-      - "URL: [https://jobsarkari-pvt.com](https://jobsarkari-pvt.com){:target='_blank'}"
+      # - "URL: [https://jobsarkari-pvt.com](https://jobsarkari-pvt.com){:target='_blank'}"
     date: Nov. 2020 - May. 2021
   - title: Central Railway
     role: Digital Office Executive
